@@ -1,0 +1,12 @@
+.content {
+	background: #fff;
+	&__title {
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	&__subtitle {
+		font-size: 18px;
+		text-align: center;
+	}
+}

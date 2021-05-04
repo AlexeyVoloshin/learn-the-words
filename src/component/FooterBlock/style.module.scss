@@ -1,0 +1,14 @@
+.content {
+	&__title {
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	&__subtitle {
+		text-align: center;
+		&::first-letter {
+			text-transform: uppercase;
+			color: red;
+		}
+	}
+}
