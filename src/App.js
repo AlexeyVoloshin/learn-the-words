@@ -1,58 +1,20 @@
 import React from 'react';
-import HeaderBlock from './component/HeaderBlock';
-import { ReactComponent as ReactLogoSvg } from './logo.svg'
 
-import './App.css';
+import {ClockCircleOutlined, HomeOutlined, SmileOutlined } from '@ant-design/icons';
+
+import BackgroundBlock from './component/BackgroundBlock';
 import Header from './component/Header';
 import Pragraph from './component/Paragraph';
-import Card from './component/Card';
+import CardList from './component/CardList';
+import { wordsList } from './worlList';
 
-export const wordsList = [
-	{
-		 eng: 'between',
-		 rus: 'между'
-	},
-	{
-		 eng: 'high',
-		 rus: 'высокий'
-	},
-	{
-		 eng: 'really',
-		 rus: 'действительно'
-	},
-	{
-		 eng: 'something',
-		 rus: 'что-нибудь'
-	},
-	{
-		 eng: 'most',
-		 rus: 'большинство'
-	},
-	{
-		 eng: 'another',
-		 rus: 'другой'
-	},
-	{
-		 eng: 'much',
-		 rus: 'много'
-	},
-	{
-		 eng: 'family',
-		 rus: 'семья'
-	},
-	{
-		 eng: 'own',
-		 rus: 'личный'
-	},
-	{
-		 eng: 'out',
-		 rus: 'из/вне'
-	},
-	{
-		 eng: 'leave',
-		 rus: 'покидать'
-	},
-];
+import imgBackground from './assets/img/background.jpg'
+
+import s from './App.module.scss';
+import Footer from './component/FooterBlock';
+import Button from './component/Button';
+
+
 
 const AppComponent = () => {
 	const descr = "Воспользуйтесь карточками для запоминания и пополнения активныйх словарных запасов";
@@ -60,30 +22,66 @@ const AppComponent = () => {
 
 	return (
 		<>
-			<HeaderBlock>
-				<Header>
-					Время учить слова
+			<BackgroundBlock
+				backgroundImg={imgBackground}
+				fullHeight
+			>
+				<Header
+					white
+					size="xl"
+				>
+					Время учить слова онлайн
 				</Header>
 				<Pragraph>
 					{descr}
 				</Pragraph>
-			</HeaderBlock>
-			<div>
-				{
-					wordsList.map(({ eng, rus }, index) => (
-						<Card key={index} eng={eng} rus={rus}/>
-					))
-				}
-			</div>
-			<HeaderBlock>
-				<Header>
-					Еще один заголовок
+			</BackgroundBlock>
+			<CardList item={wordsList}/>
+			<BackgroundBlock
+				backgroundImg={imgBackground}
+			>
+				<Header
+					white
+					size="l"
+				>
+					Мы создали уроки, чтобы помочь вам увереннее разговаривать на английском языке
 				</Header>
-				<Pragraph>
-					Ну здорово же!
+				<div className={s.motivation}>
+					<div className={s.motivationBlock}>
+						<div className={s.icons}>
+							<ClockCircleOutlined />
+						</div>
+						<Pragraph small>
+							Учитесь, когда есть свободная минутка
+						</Pragraph>
+					</div>
+				</div>
+
+				<div className={s.motivationBlock}>
+					<div className={s.icons}>
+						<HomeOutlined />
+					</div>
+					<Pragraph small>
+						Откуда угодно - дома, в&nbsp;офисе, в&nbsp;кафе
+					</Pragraph>
+					<Pragraph small>
+						Разговоры по-английски  без&nbsp;неловких пауз
+					</Pragraph>
+				</div>
+				
+			</BackgroundBlock>
+			<BackgroundBlock>
+				<Header size='l' white>
+					Изучайте английский с персональным сайтом помощником
+				</Header>
+				<Pragraph white>
+					Начните прямо сейчас
 				</Pragraph>
-				<ReactLogoSvg/>
-			</HeaderBlock>
+				<Button>
+					Начать бесплатный урок
+				</Button>
+			</BackgroundBlock>
+			<Footer/>
 		</>
 	)
 }

@@ -1,5 +1,6 @@
 import React from 'react';
-import s from './card.module.scss';
+import s from './Card.module.scss';
+const classNames = require('classnames');
 
 class CardComponent extends React.Component {
 	/* 
@@ -9,7 +10,6 @@ class CardComponent extends React.Component {
 	state = {
 		done: false,
 	}
-	
 
 	handlerCardClick = () => {
 		/* 
@@ -30,15 +30,10 @@ class CardComponent extends React.Component {
 		const { eng, rus } = this.props;
 		const { done } = this.state;
 
-		const cardClass = [s.card];
-		if (done) {
-			cardClass.push(s.done);
-		};
-		console.log(cardClass);
 		return (
 			<div 
 				onClick={this.handlerCardClick} // шаг 1. делаем клик
-				className={cardClass.join(' ')}
+				className={classNames(s.card, {[s.done]: done})}
 			>
 				<div className={s.cardInner }>
 						<div className={s.cardFront}>
