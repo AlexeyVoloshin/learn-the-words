@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.icons {
+	svg{
+		height: 4em;
+		width: 4em;
+		color: rgb(233, 177, 24);
+	}
+}
+
+.motivation {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+	&__motivationBlock {
+		width: 170px;
+		padding-left: 10px;
+		flex: 0 1 33.333%;
+	}
+}

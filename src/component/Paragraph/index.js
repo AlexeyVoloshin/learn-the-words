@@ -5,12 +5,14 @@ const Pragraph = ({
 	children, 
 	white = false, 
 	small = false, 
-	lead =false,
+	lead = false,
+	xxSmall = false,
 }) => {
 	return (
 		<p className={classNames(s.pragraph, {
 			[s.white]: white,
 			[s.small]: small,
+			[s.xxSmall]: xxSmall,
 			[s.lead] : lead, 
 		})}> 
 			{children}

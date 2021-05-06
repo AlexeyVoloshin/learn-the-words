@@ -12,7 +12,7 @@ import imgBackground from './assets/img/background.jpg'
 
 import s from './App.module.scss';
 import Footer from './component/FooterBlock';
-import Button from './component/Button';
+import ButtonComponent from './component/Button';
 
 
 
@@ -36,10 +36,8 @@ const AppComponent = () => {
 					{descr}
 				</Pragraph>
 			</BackgroundBlock>
-			<CardList item={wordsList}/>
-			<BackgroundBlock
-				backgroundImg={imgBackground}
-			>
+			
+			<BackgroundBlock>
 				<Header
 					white
 					size="l"
@@ -47,39 +45,59 @@ const AppComponent = () => {
 					Мы создали уроки, чтобы помочь вам увереннее разговаривать на английском языке
 				</Header>
 				<div className={s.motivation}>
-					<div className={s.motivationBlock}>
+					<div className={s.motivation__motivationBlock}>
 						<div className={s.icons}>
 							<ClockCircleOutlined />
 						</div>
-						<Pragraph small>
+						<Pragraph xxSmall>
 							Учитесь, когда есть свободная минутка
 						</Pragraph>
 					</div>
-				</div>
-
-				<div className={s.motivationBlock}>
-					<div className={s.icons}>
-						<HomeOutlined />
+					<div className={s.motivation__motivationBlock}>
+						<div className={s.icons}>
+								<HomeOutlined />
+						</div>
+						<Pragraph 
+							xxSmall 
+							small>
+							Откуда угодно - дома, в&nbsp;офисе, в&nbsp;кафе
+						</Pragraph>
 					</div>
-					<Pragraph small>
-						Откуда угодно - дома, в&nbsp;офисе, в&nbsp;кафе
-					</Pragraph>
-					<Pragraph small>
-						Разговоры по-английски  без&nbsp;неловких пауз
-					</Pragraph>
+					<div className={s.motivation__motivationBlock}>
+						<div className={s.icons}>
+						<div className={s.icons}>
+							<SmileOutlined />
+						</div>
+						<Pragraph xxSmall>
+							Разговоры по-английски  без&nbsp;неловких пауз и "mmm, how to say..." 
+						</Pragraph>
+					</div>
 				</div>
-				
+				</div>
+			</BackgroundBlock>
+			<BackgroundBlock
+				backgroundImg={imgBackground}>
+					<Header
+						white
+						size="l"
+					>
+					Начать учить английский просто
+				</Header>
+				<Pragraph small white>
+					Кликай по карточкам и узнавай новые слова, быстро и легко!
+				</Pragraph>
+				<CardList item={wordsList}/>
 			</BackgroundBlock>
 			<BackgroundBlock>
 				<Header size='l' white>
 					Изучайте английский с персональным сайтом помощником
 				</Header>
-				<Pragraph white>
+				<Pragraph white small>
 					Начните прямо сейчас
 				</Pragraph>
-				<Button>
+				<ButtonComponent>
 					Начать бесплатный урок
-				</Button>
+				</ButtonComponent>
 			</BackgroundBlock>
 			<Footer/>
 		</>
