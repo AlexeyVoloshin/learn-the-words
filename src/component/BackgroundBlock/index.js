@@ -6,7 +6,6 @@ const BackgroundBlock = ({fullHeight = false, backgroundImg, children}) => {
 	if (fullHeight) {
 		styleCover.height = '100vh';
 	}
-	console.log(styleCover);
 	return (
 		<div className={s.cover} style={styleCover}>
 			<div className={s.cover__wrap}>

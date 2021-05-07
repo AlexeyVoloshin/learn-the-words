@@ -1,8 +1,21 @@
 .wrapper {
 	display: flex;
-	justify-content:center;
+	justify-content:flex-start;
 	margin: 0 auto;
 	flex-wrap: wrap;
 	width: 100%;
 	max-width: 730px;
+}
+
+.form {
+	margin-bottom: 24px;
+	.inputText {
+		margin-right: 10px;
+		border-radius: 5px;
+		padding: 5px 20px;
+	}
+	.inputText:focus {
+		box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.274);
+		
+	}
 }

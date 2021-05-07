@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Card.module.scss';
-import { CheckSquareOutlined } from '@ant-design/icons';
+import {CheckSquareOutlined, DeleteOutlined} from '@ant-design/icons';
 const classNames = require('classnames');
 
 class CardComponent extends React.Component {
@@ -11,10 +11,13 @@ class CardComponent extends React.Component {
 	state = {
 		done: false,
 		isRemembered: false,
-	}
+	};
+
+	handlerDeletedClick = () => {
+		this.props.onDeleted();
+	};
 
 	handlerIsRememberClick = () => {
-		console.log('1');
 		/* 
 			если позвать не объект а функцию то для реакта это некий тригер.
 		   что позови мне стейт тогда когда весь остальной стейт выполнится.
@@ -27,7 +30,7 @@ class CardComponent extends React.Component {
 				done: true,
 			}
 		);
-	}
+	};
 
 	handlerCardClick = () => {
 		/* 
@@ -37,10 +40,10 @@ class CardComponent extends React.Component {
 			if(!isRemembered) {
 				return {
 					done: !done,
-				}
+				};
 			}
 		});
-	}
+	};
 	/*
 		 шаг 3. состояние компонента поменялось и надо его перерендерить снова
 	*/
@@ -49,8 +52,8 @@ class CardComponent extends React.Component {
 			шаг 4. Рендер рисует новую структуру нашего компонента
 			и рисует с новым значением state
 		*/ 
-		const { eng, rus } = this.props;
-		const { done, isRemembered } = this.state;
+		const {eng, rus} = this.props;
+		const {done, isRemembered} = this.state;
 
 		return (
 			<div className={s.root}>
@@ -76,9 +79,14 @@ class CardComponent extends React.Component {
 					})}
 				>
 					<CheckSquareOutlined 
-						
-						
 						onClick={this.handlerIsRememberClick} 
+					/>
+				</div>
+				<div 
+					className={s.iconsDelete}
+				>
+					<DeleteOutlined 
+						onClick={this.handlerDeletedClick}
 					/>
 				</div>
 			</div>

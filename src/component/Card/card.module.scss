@@ -64,14 +64,21 @@
 	transform: rotateY(180deg);
  }
 
- .icons {
+ .icons, .iconsDelete {
 	 position: relative;
 	 top: -6px;
 	 font-size: 26px;
 	 cursor: pointer;
+
 	 &:hover {
 		 color: #1BB95E;
 	 }
+ }
+
+ .iconsDelete {
+	&:hover {
+		color: rgb(190, 5, 5);
+	}
  }
 
  .noActive {
