@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Header.module.scss';
 const classNames = require('classnames');
 
-const Header = ({children, size = 'xl', white }) => {
+const Header = ({children, size = 'xl', white}) => {
 	let sizePoint;
 	let uppCaseSize;
 	switch (size) {
@@ -24,7 +24,7 @@ const Header = ({children, size = 'xl', white }) => {
 		default:
 			sizePoint = 1;
 			break;
-	};
+	}
 	uppCaseSize = size.toUpperCase();
 	return React.createElement(
 		`h${sizePoint}`,
@@ -34,7 +34,7 @@ const Header = ({children, size = 'xl', white }) => {
 			}),
 		},
 		children,
-	)
+	);
 };
 
 export default Header;

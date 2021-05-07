@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Pragraph.module.scss';
-const classNames = require('classnames')
+const classNames = require('classnames');
 const Pragraph = ({
 	children, 
 	white = false, 
@@ -17,6 +17,7 @@ const Pragraph = ({
 		})}> 
 			{children}
 		</p>
-	)
+	);
 };
+
 export default Pragraph;

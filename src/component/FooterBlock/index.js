@@ -7,7 +7,7 @@ const Footer = ({title, subtitle}) => {
 			<h1 className={s.content__title}>{title}</h1>
 			<p className={s.content__subtitle}>{subtitle}</p>
 		</div>
-	)
-}
+	);
+};
 
 export default Footer;
