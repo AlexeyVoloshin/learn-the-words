@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
+import {Input} from 'antd';
 import Card from '../Card';
 import s from './CardList.module.scss';
+
+const {Search} = Input;
 
 class CardListComponent extends Component {
 	state = {
@@ -15,8 +18,8 @@ class CardListComponent extends Component {
 		});
 	};
 
-	handleSubmitForm = (event) => {
-		event.preventDefault();
+	handleSubmitForm = () => {
+		// event.preventDefault();
 		this.setState(({value}) => {
 			return {
 				label: value,
@@ -26,30 +29,26 @@ class CardListComponent extends Component {
 	};
 
 	render() {
-		console.log('###: ref', this.inputRef);
 		const {item = [], onDeletedItem, onInputRef} = this.props;
+		const {value, label} = this.state;
 		
 		onInputRef(this.inputRef);
 		return (
 			<>
 				<div>
-					{ this.state.label }
+					{ label }
 				</div>
-				<form
-					className={s.form}
-					onSubmit={this.handleSubmitForm}
-				>
-					<input 
-						ref={this.inputRef}
-						className={s.inputText}
-						type="text"
-						onChange={this.handleInputChange}
-						value={this.state.value} 
-					/>
-					<button>
-						Add New Word
-					</button>
-				</form>
+				<div className={s.form}>
+					<Search
+							placeholder="input search text"
+							allowClear
+							enterButton="Search"
+							size="large"
+							value={value}
+							onChange={this.handleInputChange}
+							onSearch={this.handleSubmitForm}
+						/>
+				</div>
 				<div className={s.wrapper}>
 					{
 						item.map(({eng, rus, id}) => (

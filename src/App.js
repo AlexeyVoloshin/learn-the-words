@@ -9,6 +9,7 @@ import CardList from './component/CardList';
 import {wordsList} from './worlList';
 
 import imgBackground from './assets/img/background.jpg';
+import imgBackgroundFooter from './assets/img/back2.jpg';
 
 import s from './App.module.scss';
 import Footer from './component/FooterBlock';
@@ -34,9 +35,7 @@ class AppComponent extends Component{
 	};
 
 	onRefInput = (ref) => {
-		console.log('####: ', ref);
 		this.onInputRef = ref;
-		console.log('####: ', this.onInputRef);
 	};
 
 	render() {
@@ -96,15 +95,16 @@ class AppComponent extends Component{
 							<div className={s.icons}>
 								<SmileOutlined />
 							</div>
-							<Pragraph xxSmall>
+							<Pragraph 
+								xxSmall
+							>
 								{'Разговоры по-английски  без&nbsp;неловких пауз и "mmm, how to say..."'}
 							</Pragraph>
 						</div>
 					</div>
 					</div>
 				</BackgroundBlock>
-				<BackgroundBlock
-					backgroundImg={imgBackground}>
+				<BackgroundBlock >
 						<Header
 							white
 							size="l"
@@ -118,12 +118,13 @@ class AppComponent extends Component{
 						onDeletedItem={this.onDeletedItem} 
 						item={wordArr}
 						onInputRef={(eventRef)=> {
-							console.log(eventRef);
 							this.onRefInput(eventRef);
 						}}
 						/>
 				</BackgroundBlock>
-				<BackgroundBlock>
+				<BackgroundBlock
+					backgroundImg={imgBackgroundFooter}
+				>
 					<Header size='l' white>
 						Изучайте английский с персональным сайтом помощником
 					</Header>

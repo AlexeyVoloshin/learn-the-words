@@ -1,57 +1,62 @@
 export const wordsList = [
 	{
+		id: 1,
 		eng: 'between',
 		rus: 'между',
-		id: 1,
 	},
 	{
+		id: 2,
 		eng: 'high',
 		rus: 'высокий',
-		id: 2,
 	},
 	{
+		id: 3,
 		eng: 'really',
 		rus: 'действительно',
-		id: 3,
 	},
 	{
+		id: 4,
 		eng: 'something',
 		rus: 'что-нибудь',
-		id: 4,
 	},
 	{
+		id: 5,
 		eng: 'most',
 		rus: 'большинство',
-		id: 5,
 	},
 	{
+		id: 6,
 		eng: 'another',
 		rus: 'другой',
-		id: 6,
 	},
 	{
+		id: 7,
 		eng: 'much',
 		rus: 'много',
-		id: 7,
 	},
 	{
+		id: 8,
 		eng: 'family',
 		rus: 'семья',
-		id: 8,
 	},
 	{
+		id: 9,
 		eng: 'own',
 		rus: 'личный',
-		id: 9,
 	},
 	{
-		rus: 'из/вне',
 		id: 10,
+		rus: 'из/вне',
 		eng: 'out',
 	},
 	{
-		rus: 'покидать',
 		id: 11,
+		rus: 'покидать',
 		eng: 'leave',
 	},
+	{
+		id: "12",
+		eng: "width",
+		rus: "широкий"
+   },
 ];
