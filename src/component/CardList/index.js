@@ -12,13 +12,11 @@ class CardListComponent extends Component {
 		label: '',
 		isBusy: false
 	};
-	inputRef = React.createRef();
 
 	constructor(props) {
 		super(props);
-
+		this.inputRef = React.createRef();
 		props.onInputRef && props.onInputRef(this.inputRef);
-		console.log(props);
 	}
 
 	handleInputChange = (event) => {
