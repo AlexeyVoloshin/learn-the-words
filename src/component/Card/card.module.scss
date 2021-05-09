@@ -2,7 +2,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	width: 33%;
+	flex: 1 0 33.333%
 }
 
 .card {
@@ -12,7 +12,8 @@
 	cursor: pointer;
 	perspective: 1000px;
 	height: 33px;
-	width: 170px;
+	width: 100%;
+	min-width: 175px;
 	margin: 0 12px 12px;
 
 	&.done {
