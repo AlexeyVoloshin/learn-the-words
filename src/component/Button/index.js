@@ -2,9 +2,14 @@ import React from 'react';
 import s from './Button.module.scss';
 
 class ButtonComponent extends React.Component {
+	constructor(props) {
+		super(props);
+		if(props.inpRef) {
+			this.inputRef = props.inpRef;
+		}
+	}
 	hendlerClick = () => {
-		const {inpRef} = this.props;
-		inpRef().current.focus();
+		this.inputRef().current.focus();
 	};
 	render() {
 		const {children} = this.props;

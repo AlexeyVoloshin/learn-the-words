@@ -6,7 +6,6 @@ import BackgroundBlock from './component/BackgroundBlock';
 import Header from './component/Header';
 import Pragraph from './component/Paragraph';
 import CardList from './component/CardList';
-import {wordsList} from './worlList';
 
 import imgBackground from './assets/img/background.jpg';
 import imgBackgroundFooter from './assets/img/back2.jpg';
@@ -15,15 +14,36 @@ import s from './App.module.scss';
 import Footer from './component/FooterBlock';
 import ButtonComponent from './component/Button';
 
+import database from './services/firebase';
 
+ 
 
 class AppComponent extends Component{
 	descr = "Воспользуйтесь карточками для запоминания и пополнения активныйх словарных запасов";
 	onInputRef = null;
 	state = {
-		wordArr: wordsList,
+		wordArr: [],
 		inputRef: null,
 	};
+
+	componentDidMount() {
+		database.ref('/cards').once('value').then(res => {
+			this.setState({
+				wordArr: res.val()
+			}, this.setNewWord);
+		});
+	}
+
+	setNewWord = () => {
+		const {wordArr} = this.state;
+
+		database.ref('/cards').set([...wordArr, {
+			id: +new Date(),
+			eng: 'mouse',
+			rus: 'мышь',	
+		}]);
+	}
+
 
 	onDeletedItem = (id) => {
 		this.setState(({wordArr}) => {
@@ -32,10 +52,6 @@ class AppComponent extends Component{
 				wordArr: arrItems,
 			};
 		});
-	};
-
-	onRefInput = (ref) => {
-		this.onInputRef = ref;
 	};
 
 	render() {
@@ -56,9 +72,7 @@ class AppComponent extends Component{
 						{this.descr}
 					</Pragraph>
 					<ButtonComponent
-						inpRef={()=> {
-							return this.onInputRef;
-						}}
+						inpRef={() => this.onInputRef}
 					>
 						Начать бесплатный урок
 					</ButtonComponent>
@@ -117,9 +131,7 @@ class AppComponent extends Component{
 					<CardList 
 						onDeletedItem={this.onDeletedItem} 
 						item={wordArr}
-						onInputRef={(eventRef)=> {
-							this.onRefInput(eventRef);
-						}}
+						onInputRef={(eventRef)=> this.onInputRef = eventRef}
 						/>
 				</BackgroundBlock>
 				<BackgroundBlock
